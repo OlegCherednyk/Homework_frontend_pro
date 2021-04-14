@@ -20,10 +20,10 @@ if (!Boolean(a) || a == Infinity || a < 0) {
 
 info_length = parseInt(prompt("Введите количество студентов"))
 
-for (i = 1, info = [], sum = 0; i < info_length + 1; i++) {
-    info.push(prompt('Введите возраст, имя, фамилию студента №' + i));
-    sum += parseInt(info[i - 1].split(" ")[0]);
-    if (isNaN(info[i])) {
+for (i = 0, info = [], sum = 0; i < info_length; i++) {
+    info.push(prompt('Введите возраст, имя, фамилию студента №' + (+i + 1)));
+    sum += parseInt(info[i].split(" ")[0]);
+    if (!Boolean(info[i])) {
         alert('Некоректные данные');
         break;
     }
