@@ -1,12 +1,12 @@
 answer = prompt("Кто пришел?");
 
-if (answer == null) {
+if (answer === null) {
     alert('Вход отменен');
-} else if (answer == 'Админ' || answer == 'admin' || answer == "админ") {
+} else if (answer === 'Админ' || answer === 'admin' || answer === "админ") {
     pass = prompt("Пароль?");
-    if (pass == null) {
+    if (pass === null) {
         alert('Вход отменен');
-    } else if (pass == "Черный Властелин"){
+    } else if (pass === "Черный Властелин"){
         alert('Добро пожаловать!');
     } else {
         alert('Пароль неверен');
@@ -26,18 +26,24 @@ if (num % 3 == 0) {
 }
 
 //-------------------------------------
+info = prompt('Введите цифры');
 
-nums = prompt('Введите цифры').split(" ");
+if (!Boolean(info)) {
+    alert('Вы ничего не ввели');
+} else {
+    nums = info.split(" ");
 
-for (i = 0, max = 0; i < nums.length; i++) {
-    if (parseInt(nums[i]) >= max) {
-        max = parseInt(nums[i]);
+    for (i = 0, max = 0; i < nums.length; i++) {
+        if (parseInt(nums[i]) >= max) {
+            max = parseInt(nums[i]);
+        }
     }
+    
+    console.log(nums);
+    console.log(info);
+    
+    document.write('Максимальное число ' + max);
 }
-
-console.log(nums);
-
-document.write('Максимальное число ' + max);
 
 //-------------------------------------
 
@@ -45,14 +51,20 @@ some = prompt('Введите что-то').split("");
 num = 0;
 char = 0;
 
-for (i = 0; i < some.length; i++) {
-    if (Boolean(+some[i])) {
-        num++;
-    } else {
-        char++;
+if (isNaN(some[0])) {
+    alert('Вы ничего не ввели');
+} else {
+    for (i = 0; i < some.length; i++) {
+        if (Boolean(+some[i])) {
+            num++;
+        } else {
+            char++;
+        }
     }
+    
+    res = (num / char) * 100;
+    
+    alert('Это на ' + res + '% число');
 }
 
-res = (num / char) * 100;
 
-alert('Это на ' + res + '% число');
