@@ -46,8 +46,8 @@ for (i = 0; i < arr.length; i++) {
 }
 console.log(arr);
 
-from = arr.findIndex(i => i === min);
-to = arr.findIndex(i => i === max);
+from = arr.indexOf(min);
+to = arr.indexOf(max);
 
 console.log(from, to);
 
