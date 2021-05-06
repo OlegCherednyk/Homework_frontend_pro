@@ -44,20 +44,14 @@ for (i = 0; i < arr.length; i++) {
         max = arr[i];
     }
 }
-console.log(arr);
 
-from = arr.indexOf(min);
-to = arr.indexOf(max);
-
-console.log(from, to);
-
-if (from > to) {
-    arr_b = arr.slice(to, from + 1);
-} else if (to == from) {
-    arr_b = [arr[to]];
-} else {
-    arr_b = arr.slice(from, to + 1);
+for(i = 0, arr_b = []; i < arr.length; i++) {
+    if(arr[i] > min && arr[i] < max) {
+        arr_b.push(arr[i]);
+    }
 }
+
+console.log(arr);
 
 console.log(arr_b);
 
