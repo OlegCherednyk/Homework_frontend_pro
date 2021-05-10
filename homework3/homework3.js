@@ -36,22 +36,22 @@ for (i = 0, count = 10, arr = []; i < count; i++) {
 
 min = arr[0];
 max = arr[0];
+min_index = 0;
+min_index = 0;
 
 for (i = 0; i < arr.length; i++) {
     if (arr[i] <= min) {
         min = arr[i];
+        min_index = i;
     } else if (arr[i] >= max) {
         max = arr[i];
+        max_index = i;
     }
 }
 
-for(i = 0, arr_b = []; i < arr.length; i++) {
-    if(arr[i] > min && arr[i] < max) {
-        arr_b.push(arr[i]);
-    }
-}
+arr_b = arr.slice(min_index, max_index);
 
-console.log(arr);
+console.log(arr, "arr");
 
 console.log(arr_b);
 
