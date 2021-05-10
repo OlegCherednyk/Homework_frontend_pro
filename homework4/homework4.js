@@ -1,3 +1,5 @@
+//------------ 1 ----------------
+
 var size = 3;
 var mass = new Array(size);
 
@@ -14,7 +16,6 @@ col = [];
 
 for(let i = 0; i < size; i++) {
     for(let j = 0,  sum = 0; j < size; j++) {
-        sum += mass[j][i];
         if(j == (size - 1)) {
             col.push(sum);
         }
@@ -33,8 +34,7 @@ for(let i = 0; i < size; i++) {
     }
 }
 
-//-------------------------------------------
-
+//------------ 2 ----------------
 
 for(var j = 0, arr = []; j < 11; j++) {
     arr.push(Math.round(Math.random() * (10 - 1) + 1));
@@ -42,7 +42,7 @@ for(var j = 0, arr = []; j < 11; j++) {
 
 console.log(arr);
 
-for(let i = 1; i <= arr.length; i++) { //начал с 1  для того чтобы не было проблем с 0 % 2
+for(let i = 1; i <= arr.length; i++) { // начал с 1  для того чтобы не было проблем с 0 % 2
     if((i % 2 != 0) && (i != arr.length)) {
         val = arr[i - 1];
         arr[i - 1] = arr[i];
