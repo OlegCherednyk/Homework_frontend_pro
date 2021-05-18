@@ -12,26 +12,33 @@ for(var i = 0; i < size; i++) {
   }
 }
 
-col = [];
+var maxSum = 0;
+var minSum = 0;
 
-for(let i = 0; i < size; i++) {
-    for(let j = 0,  sum = 0; j < size; j++) {
-        if(j == (size - 1)) {
-            col.push(sum);
-        }
-    }
-}
+// var sums = []
 
-min = col[0];
-max = col[0];
+for(var k = 0; k < mass.length; k++) {
+    for(var f = 0, sum = 0; f < mass[0].length; f++) {
+        sum += mass[f][k];
+    }
 
-for(let i = 0; i < size; i++) {
-    if(col[i] > max) {
-        max = col[i]
+    if (k === 0) {
+        maxSum = sum;
+        minSum = sum;
     }
-    if(col[i] < min) {
-        min = col[i];
+
+
+    if (sum >= maxSum) {
+        maxSum = sum;
+        maxColIndex = k;
     }
+
+    if (sum <= minSum) {
+        minSum = sum;
+        minColIndex = k;
+    }
+
+    console.log('col -->', k, 'sum ===', sum);
 }
 
 //------------ 2 ----------------
