@@ -1,27 +1,4 @@
-function for_in(obj, obj1) {
-    for(key in obj1) {
-        obj[key] = obj1[key];
-    }
-}
-
-function assign_object(obj1, obj2) {
-    obj = {};
-    for_in(obj, obj1);
-    for_in(obj, obj2);
-    return obj;
-}
-
-//---------------------------------------------
-
-function assign_object_unlimited() {
-    obj = {};
-    for(i = 0; i < arguments.length; i++) {
-        for_in(obj, arguments[i]);
-    }
-    return obj;
-}
-
-//---------------------------------------------
+//------------------- Лекция 1 ----------------
 
 function convert(obj) {
     result = {};
@@ -39,13 +16,38 @@ function convert(obj) {
 obj = { x: 10, y: 20, inner: { x: 20, z: 30 }, foo2: { k: 23, p: 13 } };
 console.log(convert(obj));
 
-//--------------------------------------
+//------------------- Лекция 2 ----------------
+function for_in(obj, obj1) {
+    for(key in obj1) {
+        obj[key] = obj1[key];
+    }
+}
+
+function assign_object(obj1, obj2) {
+    obj = {};
+    for_in(obj, obj1);
+    for_in(obj, obj2);
+    return obj;
+}
+
+//------------------- Лекция 3 ----------------
+
+function assign_object_unlimited() {
+    obj = {};
+    for(i = 0; i < arguments.length; i++) {
+        for_in(obj, arguments[i]);
+    }
+    return obj;
+}
+
+
+//------------------- Лекция 4 ----------------
 
 function random(from, to) {
     return Math.round(Math.random() * (to - from) + from);
 }
 
-function get_peson(name, from, to) {
+function get_peson(from, to) {
     from = from || 10;
     to = to || 75;
 
@@ -79,16 +81,16 @@ for(i = 0, arr_all_name = []; i < arr.length; i++) {
 for(i = 0, arr_name = []; i < arr_all_name.length; i++) {
     name = arr_all_name[i];
     arr_all_name[i] = undefined;
-    if(!in_Array(name, arr_all_name)){
+    if(!in_array(name, arr_all_name)){
         arr_name.push(name);
     }
 }
 
 console.log(arr_name);
 
-//--------------------------------------
+//----------------- Практика 1 -------------------
 
-function in_Array(word, arr) {
+function in_array(word, arr) {
     for(let i = 0; i < arr.length; i++) {
         if(word === arr[i]) {
             return true;
@@ -96,3 +98,19 @@ function in_Array(word, arr) {
     }
     return false;
 }
+
+//----------------- Практика 2, 3 -------------------
+
+function assign_object_update(obj1, obj2, main_obj) {
+    main_obj = false && main_obj;
+    obj = {};
+    if(main_obj) {
+        for_in(obj, obj2);
+        for_in(obj, obj1);
+    } else {
+        for_in(obj, obj1);
+        for_in(obj, obj2);
+    }
+    return obj;
+}
+
