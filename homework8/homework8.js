@@ -1,29 +1,35 @@
-function init_slider(n, size) {
-    let counter = (n > 0 && n < size) ? n - 1 : false;
-    
-    
-    return function() {
-        if(counter === false) {
-            console.log('Error');
-            return;
+function init_slider(size) {
+    let result = {};
+    result.counter = 0;
+    result.up = function() {
+        if(result.counter != size) {
+            result.counter++;
+        }else {
+            result.counter = 0;
         }
-        if(counter < size) {
-            counter++;
-        }
-        if(counter === 0) {
-            counter = size;
-        }else if(counter === size) {
-            counter = 0;
-        }
-        return counter;
     }
+    result.down = function() {
+        if(result.counter != 0) {
+            result.counter--;
+        }else {
+            result.counter = size;
+        }
+    }
+    result.set = function(n) {
+        if(n <= size && n > 0){
+            result.counter = n;
+        }else {
+            return "Error";
+        }
+    }
+    
+    return result
 }
 
-counter = init_slider(1, 5)
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
+count = init_slider(5);
+console.log(count.set(5));
+console.log(count.up());
+console.log(count.up());
+console.log(count.up());
+console.log(count.counter)
 
