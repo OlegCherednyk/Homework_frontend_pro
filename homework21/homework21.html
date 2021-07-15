@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .boxs {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .box {
+            display: flex;
+            border: 2px solid rgb(23, 133, 127);
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+        .buttons {
+            display: flex;
+            justify-content: end;
+        }
+        .counter {
+            margin-left: 20px;
+            display: inline-block;
+            font-size: 40px;
+        }
+        .button {
+            display: inline-block;
+            border-radius: 10px;
+            margin:0px 20px 0px 20px;
+            background-color: lightgreen;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        .button[data-action = 'clear'] {
+            background-color: rgb(197, 29, 29);
+        }
+
+        .button[data-action = 'set'] {
+            text-align: center;
+            background-color: rgb(8, 120, 225);
+        }
+    </style>
+</head>
+<body>
+    <div class="boxs">
+        <div class="box" data-id="1">
+            <div class="counter"></div>
+            <div class="buttons">
+                <div class="button" data-action="click">Tap</div>
+                <div class="button" data-action="clear">Clear</div>
+            </div>        
+        </div>
+        <div class="box" data-id="2">
+            <div class="counter"></div>
+            <div class="buttons">
+                <div class="button" data-action="click">Tap</div>
+                <div class="button" data-action="clear">Clear</div>
+            </div>
+        </div>
+        <div class="button" data-action="set">Set</div>
+    </div>
+</body>
+<script src="./homework21.js"></script>
+</html>

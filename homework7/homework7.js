@@ -41,13 +41,6 @@ function convert_obj(obj) {
     let mass = [];
     let keys = [];
     
-    function do_obj(mass1, mass2) {
-        let new_obj = {};
-        for(i = 0; i < mass1.length; i++) {
-            new_obj[mass1[i]] = mass2[i];
-        }
-        return new_obj;
-    }
     
     function convert(obj) {
         for(var key in obj) {
@@ -62,7 +55,13 @@ function convert_obj(obj) {
     }
 
     convert(obj);
-    return do_obj(keys, mass);
+
+    let res_obj = {};
+    for(i = 0; i < keys.length; i++) {
+        res_obj[keys[i]] = mass[i];
+       }
+    return res_obj;
+
 }
 
 
