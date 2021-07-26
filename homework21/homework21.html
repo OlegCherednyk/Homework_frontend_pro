@@ -8,12 +8,21 @@
         * {
             box-sizing: border-box;
         }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .boxs {
             display: flex;
+            width: 40%;
             flex-direction: column;
             padding: 20px;
         }
         .box {
+            padding: 20px;
             display: flex;
             border: 2px solid rgb(23, 133, 127);
             margin-bottom: 20px;
@@ -29,6 +38,7 @@
             font-size: 40px;
         }
         .button {
+            padding: 10px;
             display: inline-block;
             border-radius: 10px;
             margin:0px 20px 0px 20px;
@@ -49,23 +59,26 @@
     </style>
 </head>
 <body>
-    <div class="boxs">
-        <div class="box" data-id="1">
-            <div class="counter"></div>
-            <div class="buttons">
-                <div class="button" data-action="click">Tap</div>
-                <div class="button" data-action="clear">Clear</div>
-            </div>        
-        </div>
-        <div class="box" data-id="2">
-            <div class="counter"></div>
-            <div class="buttons">
-                <div class="button" data-action="click">Tap</div>
-                <div class="button" data-action="clear">Clear</div>
+    <div class="main">
+        <div class="boxs">
+            <div class="box" data-id="1">
+                <div class="counter"></div>
+                <div class="buttons">
+                    <div class="button" data-action="click">Tap</div>
+                    <div class="button" data-action="clear">Clear</div>
+                </div>        
             </div>
+            <div class="box" data-id="2">
+                <div class="counter"></div>
+                <div class="buttons">
+                    <div class="button" data-action="click">Tap</div>
+                    <div class="button" data-action="clear">Clear</div>
+                </div>
+            </div>
+            <div class="button" data-action="set">Set</div>
         </div>
-        <div class="button" data-action="set">Set</div>
     </div>
+    
 </body>
 <script src="./homework21.js"></script>
 </html>

@@ -3,7 +3,7 @@ const boxs = document.querySelector('.boxs');
 boxs.addEventListener('click', allClicks);
 
 function allClicks(event) {
-    event.target.addEventListener("click", action[event.target.dataset.action]);
+    action[event.target.dataset.action](event);
     console.log(event.target)
 }
 
@@ -21,32 +21,41 @@ function creatLocalStorage() {
     
 }
 
-function setCounter(id, value) {
+function FindByAttributeValue(attribute, value, element_type)    {
+    element_type = element_type || "*";
+    let all = document.getElementsByTagName(element_type);
+    for (let i = 0; i < all.length; i++)       {
+      if (all[i].getAttribute(attribute) == value) { return all[i]; }
+    }
+  }
+
+function setCounterSt(id, value) {
     localStorage.setItem(id, value);
 }
 
 function clickCounters(event) {
-    boxParent = this.closest('.box');
+    boxParent = event.target.closest('.box');
     id = boxParent.dataset.id;
     counter = boxParent.querySelector('.counter');
     lastValue = parseInt(localStorage.getItem(id));
     value = lastValue + 1;
-    setCounter(id, value);
+    setCounterSt(id, value);
     counter.innerText = value;
 }
 
 function clearCounters(event) {
-    boxParent = this.closest('.box');
+    boxParent = event.target.closest('.box');
     id = boxParent.dataset.id;
     counter = boxParent.querySelector('.counter');
-    setCounter(id, 0);
+    setCounterSt(id, 0);
     counter.innerText = 0;
 }
 
 function setCounter(event) {
     id = prompt('введите id блока');
     value = prompt('значение counter');
-    console.log(this.closest('.boxs').querySelector('.box[data-id=' + id + ']'))
+    setCounterSt(id, value);
+    FindByAttributeValue('data-id', id, 'div').querySelector('.counter').innerText = value;
 }
 
 action = {
